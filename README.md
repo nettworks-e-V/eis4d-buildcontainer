@@ -1,6 +1,6 @@
 ## Docker container with fli4l Buildroot
  
- This is a docker implementation of all required tools to build fli4l from scratch.
+ This is a docker implementation of all required tools to build eisfair-ng packages.
 
  For more information please refer to [Official website](http://www.fli4l.de/) or [Support forum](https://forum.nettworks.org)
 
