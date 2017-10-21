@@ -20,7 +20,10 @@ RUN apk update \
  && apk add alpine-sdk \
  && adduser -D ${DEVELOP_USER} \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
- && echo "${DEVELOP_USER}   ALL=(ALL) ALL" >> /etc/sudoers
+ && echo "${DEVELOP_USER}   ALL=(ALL) ALL" >> /etc/sudoers \
+ && addgroup ${DEVELOP_USER} abuild \
+ && mkdir -p /var/cache/distfiles \
+ && chmod a+w /var/cache/distfiles
 
 USER ${DEVELOP_USER}
 
