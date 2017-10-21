@@ -25,7 +25,7 @@ RUN apk update \
  && mkdir -p /var/cache/distfiles \
  && chmod a+w /var/cache/distfiles
 
-USER ${DEVELOP_USER}
+#USER ${DEVELOP_USER}
 
 #RUN git config --global user.name "Your Full Name" \
 # && git config --global user.email "your@email.address"
