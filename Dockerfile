@@ -22,7 +22,7 @@ RUN apk update \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
  && echo "${DEVELOP_USER}   ALL=(ALL) ALL" >> /etc/sudoers
 
-USER 
+USER ${DEVELOP_USER}
 
 #RUN git config --global user.name "Your Full Name" \
 # && git config --global user.email "your@email.address"
