@@ -2,19 +2,15 @@ FROM alpine:3.6
 MAINTAINER Yves Schumann <yves@eisfair.org>
 
 # Define build arguments
-ARG GIT_ACCOUNT=anonymous
-ARG GIT_PASS=''
 ARG DEVELOP_USER=developer
 ARG DEVELOP_PASS=developer
 
 # Define environment vars
-ENV GIT_ACCOUNT=${GIT_ACCOUNT} \
-    GIT_PASS=${GIT_PASS} \
-    GIT_CLONE_DIR=/opt/git_clone
+ENV WORK_DIR=/data/work
 
 # Mount point for Edomi backups
 RUN mkdir -p ${WORK_DIR}
-VOLUME ${GIT_CLONE_DIR}
+VOLUME ${WORK_DIR}
 
 RUN apk update \
  && apk upgrade \
