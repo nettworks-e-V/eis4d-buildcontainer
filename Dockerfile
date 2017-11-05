@@ -17,7 +17,7 @@ RUN apk update \
  && apk upgrade \
  && apk add alpine-sdk \
  && adduser -D -h /home/${DEVELOP_USER} -u ${UID} ${DEVELOP_USER} \
- && chown ${DEVELOP_USER}:${DEVELOP_USER} /home/${DEVELOP_USER} -R
+ && chown ${DEVELOP_USER}:${DEVELOP_USER} /home/${DEVELOP_USER} -R \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
  && echo "${DEVELOP_USER}   ALL=(ALL) ALL" >> /etc/sudoers \
  && addgroup ${DEVELOP_USER} abuild \
