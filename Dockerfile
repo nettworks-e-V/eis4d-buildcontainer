@@ -13,6 +13,7 @@ ENV GIT_ACCOUNT=${GIT_ACCOUNT} \
     GIT_CLONE_DIR=/opt/git_clone
 
 # Mount point for Edomi backups
+RUN mkdir -p ${WORK_DIR}
 VOLUME ${GIT_CLONE_DIR}
 
 RUN apk update \
