@@ -4,6 +4,7 @@ MAINTAINER Yves Schumann <yves@eisfair.org>
 # Define build arguments
 ARG DEVELOP_USER=developer
 ARG DEVELOP_PASS=developer
+ARG UID="1000"
 
 # Define environment vars
 ENV WORK_DIR=/data/work
@@ -15,7 +16,8 @@ VOLUME ${WORK_DIR}
 RUN apk update \
  && apk upgrade \
  && apk add alpine-sdk \
- && adduser -D ${DEVELOP_USER} \
+ && adduser -D -h /home/${DEVELOP_USER} -u ${UID} ${DEVELOP_USER} \
+ && chown ${DEVELOP_USER}:${DEVELOP_USER} /home/${DEVELOP_USER} -R
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
  && echo "${DEVELOP_USER}   ALL=(ALL) ALL" >> /etc/sudoers \
  && addgroup ${DEVELOP_USER} abuild \
