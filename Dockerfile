@@ -9,7 +9,7 @@ ARG UID="1000"
 # Define environment vars
 ENV WORK_DIR=/data/work
 
-# Mount point for Edomi backups
+# Mount point for development workspace
 RUN mkdir -p ${WORK_DIR}
 VOLUME ${WORK_DIR}
 
