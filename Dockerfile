@@ -16,7 +16,6 @@ RUN apk update \
  && apk upgrade \
  && apk add alpine-sdk bash openssh \
  && adduser -D -h /home/${DEVELOP_USER} -s /bin/bash -G abuild ${DEVELOP_USER} \
- && chown ${DEVELOP_USER}:${DEVELOP_USER} /home/${DEVELOP_USER} -R \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
  && echo "${DEVELOP_USER}   ALL=(ALL) ALL" >> /etc/sudoers \
  && mkdir -p /var/cache/distfiles \
