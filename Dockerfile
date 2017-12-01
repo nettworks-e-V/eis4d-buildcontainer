@@ -25,6 +25,7 @@ RUN apk update \
 VOLUME /home/${DEVELOP_USER}
 
 # Mount point for global abuild configuration
+RUN mv /etc/abuild.conf /etc/abuild.conf.bak
 VOLUME /etc/abuild.conf
 
 #USER ${DEVELOP_USER}
