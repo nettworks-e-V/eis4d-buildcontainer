@@ -14,12 +14,18 @@ VOLUME ${WORK_DIR}
 
 RUN apk update \
  && apk upgrade \
- && apk add alpine-sdk bash openssh \
+ && apk add alpine-sdk bash openssh mc \
  && adduser -D -h /home/${DEVELOP_USER} -s /bin/bash -G abuild ${DEVELOP_USER} \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
  && echo "${DEVELOP_USER}   ALL=(ALL) ALL" >> /etc/sudoers \
  && mkdir -p /var/cache/distfiles \
  && chmod a+w /var/cache/distfiles
+
+# Mount point for develop user home
+VOLUME /home/${DEVELOP_USER}
+
+# Mount point for global abuild configuration
+VOLUME /etc/abuild.conf
 
 #USER ${DEVELOP_USER}
 
