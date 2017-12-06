@@ -26,6 +26,7 @@ VOLUME /home/${DEVELOP_USER}
 
 # Mount point for global abuild configuration
 RUN mv /etc/abuild.conf /etc/abuild.conf.bak
+COPY etc/abuild.conf.default /etc/abuild.conf.default
 VOLUME /etc/abuild.conf
 
 #USER ${DEVELOP_USER}
