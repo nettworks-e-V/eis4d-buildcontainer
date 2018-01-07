@@ -21,6 +21,9 @@ RUN apk update \
     mc \
     sudo \
     rsync \
+    autoconf \
+    automake \
+    libtool \
  && adduser -D -h /home/${DEVELOP_USER} -s /bin/bash -G abuild ${DEVELOP_USER} \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
  && echo "${DEVELOP_USER}   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
