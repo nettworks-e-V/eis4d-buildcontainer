@@ -14,7 +14,13 @@ VOLUME ${WORK_DIR}
 
 RUN apk update \
  && apk upgrade \
- && apk add alpine-sdk bash openssh mc sudo \
+ && apk add \
+    alpine-sdk \
+    bash \
+    openssh \
+    mc \
+    sudo \
+    rsync \
  && adduser -D -h /home/${DEVELOP_USER} -s /bin/bash -G abuild ${DEVELOP_USER} \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
  && echo "${DEVELOP_USER}   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
