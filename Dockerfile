@@ -29,21 +29,19 @@ RUN apk update \
     ncurses-dev \
     linux-headers \
     openrc \
+    tzdata \
  && adduser -D -h /home/${DEVELOP_USER} -s /bin/bash -G abuild ${DEVELOP_USER} \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
  && echo "${DEVELOP_USER}   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
  && mkdir -p /var/cache/distfiles \
- && chmod a+w /var/cache/distfiles
+ && chmod a+w /var/cache/distfiles \
+ && cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
+ && echo "Europe/Berlin" > /etc/timezone
 
 # Mount point for develop user home
 VOLUME /home/${DEVELOP_USER}
 
 # Mount point for global abuild configuration
 RUN mv /etc/abuild.conf /etc/abuild.conf.default
-#COPY etc/abuild.conf.default /etc/abuild.conf.default
-#VOLUME /etc/abuild.conf
 
 #USER ${DEVELOP_USER}
-
-#RUN git config --global user.name "Your Full Name" \
-# && git config --global user.email "your@email.address"
