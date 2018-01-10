@@ -30,6 +30,7 @@ RUN apk update \
     linux-headers \
     openrc \
     tzdata \
+    cmake \
  && adduser -D -h /home/${DEVELOP_USER} -s /bin/bash -G abuild ${DEVELOP_USER} \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
  && echo "${DEVELOP_USER}   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
