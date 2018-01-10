@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM multiarch/alpine:i386-edge
 MAINTAINER Yves Schumann <yves@eisfair.org>
 
 # Define build arguments
