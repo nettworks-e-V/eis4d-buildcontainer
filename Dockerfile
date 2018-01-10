@@ -1,4 +1,4 @@
-FROM multiarch/alpine:i386-v3.6
+FROM multiarch/alpine:x86-v3.6
 MAINTAINER Yves Schumann <yves@eisfair.org>
 
 # Define build arguments
