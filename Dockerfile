@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM debian/buster:latest
 MAINTAINER Yves Schumann <yves@eisfair.org>
 
 # Define build arguments
@@ -15,34 +15,18 @@ VOLUME ${WORK_DIR}
 RUN apk update \
  && apk upgrade \
  && apk add \
-    alpine-sdk \
     bash \
+    build-essential \
     openssh \
     mc \
     sudo \
     rsync \
-    autoconf \
-    automake \
-    libtool \
-    flex \
-    coreutils \
-    ncurses-dev \
-    linux-headers \
-    openrc \
-    tzdata \
     cmake \
- && adduser -D -h /home/${DEVELOP_USER} -s /bin/bash -G abuild ${DEVELOP_USER} \
+ && adduser -D -h /home/${DEVELOP_USER} -s /bin/bash ${DEVELOP_USER} \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
- && echo "${DEVELOP_USER}   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
- && mkdir -p /var/cache/distfiles \
- && chmod a+w /var/cache/distfiles \
- && cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
- && echo "Europe/Berlin" > /etc/timezone
+ && echo "${DEVELOP_USER}   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Mount point for develop user home
 VOLUME /home/${DEVELOP_USER}
-
-# Mount point for global abuild configuration
-RUN mv /etc/abuild.conf /etc/abuild.conf.default
 
 #USER ${DEVELOP_USER}

@@ -1,32 +1,14 @@
-## Docker container with eisfair-ng SDK
+## Docker container with Debian SDK
  
  This is a docker implementation of all required tools to build eisfair-ng 
- packages.
+ packages for Debian.
 
- For more information please refer to [Official website](http://www.fli4l.de/) 
+ For more information please refer to [Official website](http://www.eisfair.org/) 
  or [Support forum](https://forum.nettworks.org)
 
 ### 1. Install docker
 
- This instruction works for a <b>Centos7</b> docker host. Other distributions 
- may need some adjustments.
-
-```shell
-sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
-[dockerrepo]
-name=Docker Repository
-baseurl=https://yum.dockerproject.org/repo/main/centos/7/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum.dockerproject.org/gpg
-EOF
-...
-sudo yum install docker-engine -y
-...
-sudo systemctl enable docker.service
-...
-sudo systemctl start docker.service
-```
+ For installation please see [official documentation](https://docs.docker.com/install/linux/docker-ce/debian/).
 
 ### 2. Build/Use the Container
 
@@ -37,7 +19,7 @@ You now have two options:
 #### 2a Image from Docker Hub
 
 ```shell
-sudo docker pull starwarsfan/eisfair-ng-buildcontainer
+sudo docker pull nettworksevtooling/eisfair-ng-buildcontainer
 ```
 
 #### 2b Build from scratch
@@ -45,14 +27,14 @@ sudo docker pull starwarsfan/eisfair-ng-buildcontainer
 ##### Pull repo from github
 
 ```shell
-sudo git clone https://github.com/starwarsfan/eisfair-ng-buildcontainer.git
+sudo git clone https://github.com/nettworks-e-V/eisfair-ng-buildcontainer
 cd eisfair-ng-buildcontainer
 ```
 
 ##### Build image
 
 ```shell
-sudo docker build -t starwarsfan/eisfair-ng-buildcontainer:latest .
+sudo docker build -t nettworksevtooling/eisfair-ng-buildcontainer:latest .
 ```
 
 ### 3. Starting docker container
@@ -61,7 +43,7 @@ sudo docker build -t starwarsfan/eisfair-ng-buildcontainer:latest .
 sudo docker run \
     --name eisfair-ng-buildcontainer \
     -d \
-    starwarsfan/eisfair-ng-buildcontainer:latest
+    nettworksevtooling/eisfair-ng-buildcontainer:latest
 ```
 
 #### 3.a Mount volume or folder for svn checkout
