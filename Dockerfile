@@ -20,6 +20,7 @@ RUN apt-get update -y \
  && apt-get install -y \
     bash \
     build-essential \
+    git \
     openssh-client \
     mc \
     sudo \
