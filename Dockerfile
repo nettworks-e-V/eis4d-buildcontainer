@@ -28,7 +28,7 @@ RUN apt-get update -y \
     debhelper \
     devscripts \
     fakeroot \
-    fil \
+    file \
     gfortran \
     git \
     gnupg \
