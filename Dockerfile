@@ -1,4 +1,4 @@
-FROM debian/buster:latest
+FROM debian:buster-slim
 MAINTAINER Yves Schumann <yves@eisfair.org>
 
 # Define build arguments
