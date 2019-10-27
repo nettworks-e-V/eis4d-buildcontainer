@@ -17,7 +17,7 @@ RUN apt-get update -y \
  && apt-get install -y \
     bash \
     build-essential \
-    openssh \
+    openssh-client \
     mc \
     sudo \
     rsync \
