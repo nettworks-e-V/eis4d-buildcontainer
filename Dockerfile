@@ -18,14 +18,19 @@ VOLUME ${WORK_DIR}
 RUN apt-get update -y \
  && apt-get upgrade -y \
  && apt-get install -y \
+    autoconf \
+    automake \
+    autotools-dev \
     bash \
     build-essential \
-    git \
-    openssh-client \
-    mc \
-    sudo \
-    rsync \
     cmake \
+    debhelper \
+    git \
+    libncurses5-dev \
+    mc \
+    openssh-client \
+    rsync \
+    sudo \
  && apt-get clean \
  && groupadd --gid ${GID} ${DEVELOP_GROUP} \
  && useradd --create-home --home-dir /home/${DEVELOP_USER} --shell /bin/bash --uid ${UID} --gid ${GID} ${DEVELOP_USER} \
