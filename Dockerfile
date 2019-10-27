@@ -5,8 +5,8 @@ MAINTAINER Yves Schumann <yves@eisfair.org>
 ARG DEVELOP_GROUP=developer
 ARG DEVELOP_USER=developer
 ARG DEVELOP_PASS=developer
-ARG UID=1010
-ARG GID=1010
+ARG UID=1000
+ARG GID=1000
 
 # Define environment vars
 ENV WORK_DIR=/data/work
