@@ -24,13 +24,28 @@ RUN apt-get update -y \
     bash \
     build-essential \
     cmake \
+    dh-make \
     debhelper \
+    devscripts \
+    fakeroot \
+    fil \
+    gfortran \
     git \
+    gnupg \
+    gpc \
     libncurses5-dev \
+    lintian \
     mc \
     openssh-client \
+    patch \
+    patchutils \
+    pbuilder \
+    perl \
+    python \
+    quilt \
     rsync \
     sudo \
+    xutils-dev \
  && apt-get clean \
  && groupadd --gid ${GID} ${DEVELOP_GROUP} \
  && useradd --create-home --home-dir /home/${DEVELOP_USER} --shell /bin/bash --uid ${UID} --gid ${GID} ${DEVELOP_USER} \
