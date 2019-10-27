@@ -1,14 +1,14 @@
 ## Docker container with Debian SDK
  
- This is a docker implementation of all required tools to build eisfair-ng 
- packages for Debian.
+This is a docker implementation of all required tools to build eis4d 
+packages for Debian.
 
- For more information please refer to [Official website](http://www.eisfair.org/) 
- or [Support forum](https://forum.nettworks.org)
+For more information please refer to [Official website](http://www.eisfair.org/) 
+or [Support forum](https://forum.nettworks.org)
 
 ### 1. Install docker
 
- For installation please see [official documentation](https://docs.docker.com/install/linux/docker-ce/debian/).
+For installation please see [official documentation](https://docs.docker.com/install/linux/docker-ce/debian/).
 
 ### 2. Build/Use the Container
 
@@ -19,7 +19,7 @@ You now have two options:
 #### 2a Image from Docker Hub
 
 ```shell
-sudo docker pull nettworksevtooling/eisfair-ng-buildcontainer
+sudo docker pull nettworksevtooling/eis4d-buildcontainer
 ```
 
 #### 2b Build from scratch
@@ -27,23 +27,23 @@ sudo docker pull nettworksevtooling/eisfair-ng-buildcontainer
 ##### Pull repo from github
 
 ```shell
-sudo git clone https://github.com/nettworks-e-V/eisfair-ng-buildcontainer
-cd eisfair-ng-buildcontainer
+sudo git clone https://github.com/nettworks-e-V/eis4d-buildcontainer
+cd eis4d-buildcontainer
 ```
 
 ##### Build image
 
 ```shell
-sudo docker build -t nettworksevtooling/eisfair-ng-buildcontainer:latest .
+sudo docker build -t nettworksevtooling/eis4d-buildcontainer:latest .
 ```
 
 ### 3. Starting docker container
 
 ```shell
 sudo docker run \
-    --name eisfair-ng-buildcontainer \
+    --name eis4d-buildcontainer \
     -d \
-    nettworksevtooling/eisfair-ng-buildcontainer:latest
+    nettworksevtooling/eis4d-buildcontainer:latest
 ```
 
 #### 3.a Mount volume or folder for svn checkout
@@ -54,7 +54,7 @@ container. So the run command may look like the following example:
 
 ```shell
 sudo docker run \
-    --name eisfair-ng-buildcontainer \
+    --name eis4d-buildcontainer \
     -v /data/git-clone/:/data/work/ ...
 ```
 
@@ -69,23 +69,23 @@ sudo docker ps -a
 Stop the container
 
 ```shell
-sudo docker stop eisfair-ng-buildcontainer
+sudo docker stop eis4d-buildcontainer
 ```
 
 Start the container
 
 ```shell
-sudo docker start eisfair-ng-buildcontainer
+sudo docker start eis4d-buildcontainer
 ```
 
 Get logs from container
 
 ```shell
-sudo docker logs -f eisfair-ng-buildcontainer
+sudo docker logs -f eis4d-buildcontainer
 ```
 
 Open cmdline inside of container
 
 ```shell
-sudo docker exec -i -t eisfair-ng-buildcontainer /bin/bash
+sudo docker exec -i -t eis4d-buildcontainer /bin/bash
 ```
