@@ -2,8 +2,11 @@ FROM debian:buster-slim
 MAINTAINER Yves Schumann <yves@eisfair.org>
 
 # Define build arguments
+ARG DEVELOP_GROUP=developer
 ARG DEVELOP_USER=developer
 ARG DEVELOP_PASS=developer
+ARG UID="1000"
+ARG GID="1000"
 
 # Define environment vars
 ENV WORK_DIR=/data/work
@@ -23,9 +26,11 @@ RUN apt-get update -y \
     rsync \
     cmake \
  && apt-get clean \
- && adduser -D -h /home/${DEVELOP_USER} -s /bin/bash ${DEVELOP_USER} \
+ && groupadd --gid ${GID} ${DEVELOP_GROUP} \
+ && useradd --create-home --home-dir /home/${DEVELOP_USER} --shell /bin/bash --uid ${UID} --gid ${GID} ${DEVELOP_USER} \
  && echo "${DEVELOP_USER}:${DEVELOP_PASS}" | chpasswd \
- && echo "${DEVELOP_USER}   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+ && chown ${DEVELOP_USER}:${DEVELOP_GROUP} /home/${DEVELOP_USER} -R \
+ && ulimit -v unlimited
 
 # Mount point for develop user home
 VOLUME /home/${DEVELOP_USER}
