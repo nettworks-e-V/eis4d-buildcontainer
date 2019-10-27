@@ -32,7 +32,6 @@ RUN apt-get update -y \
     gfortran \
     git \
     gnupg \
-    gpc \
     libncurses5-dev \
     lintian \
     mc \
