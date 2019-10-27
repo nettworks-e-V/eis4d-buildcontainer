@@ -29,6 +29,7 @@ RUN apt-get update -y \
     devscripts \
     fakeroot \
     file \
+    flex \
     gfortran \
     git \
     gnupg \
