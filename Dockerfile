@@ -11,7 +11,7 @@ ARG GID=1000
 # Define environment vars
 ENV WORK_DIR=/data/work \
     REPO_DIR=/var/www/html/repo \
-    TARGET_DIR=${REPO_DIR}/source
+    TARGET_DIR=/var/www/html/repo/source
 
 # Mount point for development workspace
 RUN mkdir -p ${WORK_DIR} ${TARGET_DIR}
