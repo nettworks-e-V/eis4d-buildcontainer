@@ -19,6 +19,7 @@ RUN mkdir -p ${WORK_DIR} ${TARGET_DIR}
 RUN apt-get update -y \
  && apt-get upgrade -y \
  && apt-get install -y \
+    apt-utils \
     autoconf \
     automake \
     autotools-dev \
