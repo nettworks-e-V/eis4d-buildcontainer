@@ -53,6 +53,8 @@ RUN apt-get update -y \
  && chown ${DEVELOP_USER}:${DEVELOP_GROUP} /home/${DEVELOP_USER} -R \
  && ulimit -v unlimited
 
+COPY createPackageRepository.sh /usr/local/bin/
+
 # Mount point for develop user home
 VOLUME /home/${DEVELOP_USER}
 
