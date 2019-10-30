@@ -9,8 +9,8 @@ ARG UID=1000
 ARG GID=1000
 
 # Define environment vars
-ENV WORK_DIR=/data/work
-    REPO_DIR=/var/www/html/repo
+ENV WORK_DIR=/data/work \
+    REPO_DIR=/var/www/html/repo \
     TARGET_DIR=${REPO_DIR}/source
 
 # Mount point for development workspace
