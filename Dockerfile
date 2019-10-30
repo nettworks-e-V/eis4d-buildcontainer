@@ -55,5 +55,6 @@ RUN apt-get update -y \
  && ulimit -v unlimited
 
 COPY createPackageRepository.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/createPackageRepository.sh
 
 #USER ${DEVELOP_USER}
