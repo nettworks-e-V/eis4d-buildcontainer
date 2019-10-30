@@ -15,7 +15,6 @@ ENV WORK_DIR=/data/work \
 
 # Mount point for development workspace
 RUN mkdir -p ${WORK_DIR} ${TARGET_DIR}
-VOLUME ${WORK_DIR}
 
 RUN apt-get update -y \
  && apt-get upgrade -y \
@@ -57,8 +56,9 @@ RUN apt-get update -y \
 
 COPY createPackageRepository.sh /usr/local/bin/
 
-# Mount point for develop user home and package repository
+# Mount points
 VOLUME /home/${DEVELOP_USER}
 VOLUME ${REPO_DIR}
+VOLUME ${WORK_DIR}
 
 #USER ${DEVELOP_USER}
