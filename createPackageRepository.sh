@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-REPO_DIR=/var/www/html/repo
+if [[ -z "$REPO_DIR" ]] ; then
+    REPO_DIR=/var/www/html/repo
+fi
+
 
 mkdir -p    ${REPO_DIR}/amd64/pool/main
 mkdir -p    ${REPO_DIR}/amd64/dists/stable/main/binary-amd64
@@ -14,6 +17,9 @@ APT::FTPArchive::Release::Label "Local APT Repository";
 APT::FTPArchive::Release::Architectures "amd64";
 APT::FTPArchive::Release::Description "Custom Debian packages for EIS4D cui gui";
 EOF
+
+# Source files assumed on ${REPO_DIR}/source
+cd ${REPO_DIR}/source
 
 cp -u *.deb ${REPO_DIR}/amd64/pool/main
 cd ${REPO_DIR}/amd64

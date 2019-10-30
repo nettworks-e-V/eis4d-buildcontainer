@@ -10,9 +10,11 @@ ARG GID=1000
 
 # Define environment vars
 ENV WORK_DIR=/data/work
+    REPO_DIR=/var/www/html/repo
+    TARGET_DIR=${REPO_DIR}/source
 
 # Mount point for development workspace
-RUN mkdir -p ${WORK_DIR}
+RUN mkdir -p ${WORK_DIR} ${TARGET_DIR}
 VOLUME ${WORK_DIR}
 
 RUN apt-get update -y \
@@ -55,7 +57,8 @@ RUN apt-get update -y \
 
 COPY createPackageRepository.sh /usr/local/bin/
 
-# Mount point for develop user home
+# Mount point for develop user home and package repository
 VOLUME /home/${DEVELOP_USER}
+VOLUME ${REPO_DIR}
 
 #USER ${DEVELOP_USER}
