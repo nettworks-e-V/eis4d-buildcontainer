@@ -56,9 +56,4 @@ RUN apt-get update -y \
 
 COPY createPackageRepository.sh /usr/local/bin/
 
-# Mount points
-VOLUME /home/${DEVELOP_USER}
-VOLUME ${REPO_DIR}
-VOLUME ${WORK_DIR}
-
 #USER ${DEVELOP_USER}
