@@ -10,7 +10,7 @@ mkdir -p    ${REPO_DIR}/amd64/dists/stable/main/binary-amd64
 
 # Create release file
 cat > ${REPO_DIR}/amd64/release.conf <<EOF
-APT::FTPArchive::Release::Origin "The eisfair Team";
+APT::FTPArchive::Release::Origin "Eisfair Team";
 APT::FTPArchive::Release::Codename "stable";
 APT::FTPArchive::Release::Components "main";
 APT::FTPArchive::Release::Label "Local APT Repository";
@@ -33,5 +33,5 @@ apt-ftparchive contents pool/main > dists/stable/main/Contents-amd64
 gzip -k dists/stable/main/Contents-amd64
 apt-ftparchive release dists/stable/main/binary-amd64 > dists/stable/main/binary-amd64/Release
 apt-ftparchive release -c release.conf dists/stable > dists/stable/Release
-gpg -a --yes --output dists/stable/Release.gpg --local-user "The eisfair Team" --detach-sign dists/stable/Release
-gpg -a --yes --clearsign --output dists/stable/InRelease --local-user "The eisfair Team" --detach-sign dists/stable/Release
+gpg -a --yes --output dists/stable/Release.gpg --local-user "Eisfair Team" --detach-sign dists/stable/Release
+gpg -a --yes --clearsign --output dists/stable/InRelease --local-user "Eisfair Team" --detach-sign dists/stable/Release
